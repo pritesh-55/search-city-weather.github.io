@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- stylesheet from bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- cdnjs file of font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+    integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- scripts from bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <title>Weather</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <!-- Navbar section -->
+  <div class="container-fluid main_menu">
+    <div class="row">
+      <div class="col-md-10 col-12 mx-auto">
+        <!-- navbar code from bootstrap -->
+        <nav class="navbar navbar-expand-lg">
+          <a class="navbar-brand" href="About.html">
+            <!--Adding Snowflakes to both sides --><i class="far fa-snowflake"></i> PRITESH <i
+              class="far fa-snowflake"></i>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="About.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Weather.html">Weather</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <div class="container-fluid main_header">
+    <div class="row">
+      <div class="col-md-10 col-12 mx-auto">
+
+        <!--         {{!-- Section where user will search the city to get weather --}} -->
+        <div class="main_content">
+          <form class="temp_form">
+            <input type="text" id="cityName" placeholder="Enter the City Name" autocomplete="off">
+            <input type="submit" value="Search" id="submitbtn">
+          </form>
+        </div>
+
+        <div class="tempinfo">
+          <!--           {{!-- top layer where date and day will be shown --}} -->
+          <div class="top_layer">
+            <p id="day">Tuesday</p>
+            <p id="month">00</p>
+          </div>
+
+          <!--           {{!-- middle layer where temperature and weather will be shown --}} -->
+          <div class="main_layer">
+            <p id="city_name">City Name</p>
+            <div class="middle_layer data_hide">
+              <p id="temp"> <span>0</span> <sup>o</sup>C</p>
+              <p id="status"> <i class="fa fa-cloud" aria-hidden="true"></i> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Designed by PRITESH SRIVASTAVA 👌</p>
+  </footer>
+
+  <script>
+
+    // Setting Up Current Date, Month and Weekday
+    const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let currentDate = new Date();
+
+
+    //let Date = currentDate.getDate();
+    let Month = month[currentDate.getMonth()];
+    let Weekday = daysOfWeek[currentDate.getDay()];
+    let year = currentDate.getFullYear();
+
+
+    let setday = document.getElementById('day')
+    setday.innerText = Weekday;
+
+    let setdate = document.getElementById('month')
+    setdate.innerText = `${Month} ${year}`;
+
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>
